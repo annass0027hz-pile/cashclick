@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100d1b">
+<title>CashClick Rewards</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#100d1b;--panel:#1c1729;--panel2:#241d34;--purple:#a78bfa;--pink:#e879f9;--text:#f7f4ff;--muted:#aaa1bd;--line:#342a49}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#2c1b48 0,#100d1b 48%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:22px 16px calc(92px + env(safe-area-inset-bottom))}
+main{max-width:520px;margin:auto}.header{display:flex;justify-content:space-between;align-items:center;margin:4px 0 24px}.brand{font-size:20px;font-weight:850;letter-spacing:.1px}.brand span{color:var(--purple)}.avatar{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#d946ef);display:grid;place-items:center;font-weight:800}
+.hero{position:relative;overflow:hidden;border:1px solid #574074;border-radius:24px;padding:22px;background:linear-gradient(135deg,#39245b,#211832 72%);box-shadow:0 16px 40px #0005}.hero:after{content:"✦";position:absolute;right:20px;top:8px;font-size:78px;color:#ffffff12}.eyebrow{font-size:12px;color:#d8c9ff;text-transform:uppercase;letter-spacing:1.2px;font-weight:700}.balance{font-size:40px;font-weight:850;margin:10px 0 2px}.balance small{font-size:15px;color:#d8c9ff}.sub{font-size:12px;color:#c5b7dc}.pill{display:inline-block;margin-top:17px;padding:8px 12px;border-radius:99px;background:#ffffff16;color:#f0eaff;font-size:12px}
+.section-title{font-size:17px;font-weight:800;margin:25px 0 13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{background:linear-gradient(160deg,#241d34,#191425);border:1px solid var(--line);border-radius:19px;padding:16px;min-height:151px}.ico{width:42px;height:42px;border-radius:14px;background:#8b5cf626;display:grid;place-items:center;font-size:22px;margin-bottom:13px}.tile h3{font-size:15px;margin:0 0 6px}.tile p{font-size:12px;line-height:1.45;color:var(--muted);margin:0}.tile button,.wide{margin-top:13px;width:100%;border:0;border-radius:12px;padding:11px;background:linear-gradient(100deg,#8b5cf6,#c026d3);color:white;font-weight:750;font-size:13px}
+.wide{padding:14px;font-size:14px}.activity{margin-top:12px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;display:flex;gap:12px;align-items:center}.activity .ico{margin:0;flex-shrink:0}.activity strong{font-size:13px}.activity p{font-size:11px;color:var(--muted);margin:4px 0 0}.note{margin-top:17px;padding:13px;border-radius:14px;background:#30251a;border:1px solid #68502d;color:#f2d9a5;font-size:11px;line-height:1.5}
+.nav{position:fixed;bottom:0;left:0;right:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#151020ed;backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:8px}.nav button{width:min(24%,115px);background:transparent;color:var(--muted);border:0;padding:8px 4px;font-size:11px}.nav button b{display:block;font-size:19px;margin-bottom:3px}.nav button.active{color:#d7c6ff}
+.hidden{display:none}.page{animation:fade .18s ease}@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main>
+<header class="header"><div class="brand">CashClick <span>Rewards</span></div><div class="avatar" id="avatar">C</div></header>
+
+<section id="home" class="page">
+  <div class="hero">
+    <div class="eyebrow">Bienvenue sur ton espace</div>
+    <div class="balance">250 <small>points</small></div>
+    <div class="sub">Solde fictif de démonstration</div>
+    <div class="pill">✦ Ton espace récompenses</div>
+  </div>
+  <div class="section-title">Découvrir</div>
+  <div class="grid">
+    <article class="tile"><div class="ico">▶</div><h3>Vidéos & annonces</h3><p>Découvre l'espace publicitaire lorsqu'il sera configuré.</p><button onclick="notice('Les annonces ne sont pas activées dans cette maquette.')">Ouvrir</button></article>
+    <article class="tile"><div class="ico">🎁</div><h3>Récompenses</h3><p>Retrouve ici les règles et les récompenses proposées.</p><button onclick="go('rewards')">Découvrir</button></article>
+    <article class="tile"><div class="ico">♧</div><h3>Parrainage</h3><p>Un espace pour présenter les invitations.</p><button onclick="go('invite')">Inviter</button></article>
+    <article class="tile"><div class="ico">👤</div><h3>Mon profil</h3><p>Consulte les informations de ton compte.</p><button onclick="go('profile')">Mon profil</button></article>
+  </div>
+  <div class="section-title">Activité récente</div>
+  <div class="activity"><div class="ico">✨</div><div><strong>Bienvenue sur CashClick Rewards</strong><p>Ton espace de démonstration est prêt.</p></div></div>
+</section>
+
+<section id="rewards" class="page hidden">
+  <div class="section-title">🎁 Récompenses</div>
+  <div class="hero"><div class="eyebrow">Ton solde de démonstration</div><div class="balance">250 <small>points</small></div><div class="sub">Les points affichés sont fictifs.</div></div>
+  <div class="activity"><div class="ico">⭐</div><div><strong>Règles des récompenses</strong><p>Les conditions et éventuelles récompenses seront précisées avant toute activation.</p></div></div>
+  <div class="note">Aucun retrait ni paiement réel n'est disponible dans cette version.</div>
+</section>
+
+<section id="invite" class="page hidden">
+  <div class="section-title">♧ Parrainage</div>
+  <div class="tile"><div class="ico">💌</div><h3>Partager CashClick Rewards</h3><p>Cette rubrique pourra présenter un lien d'invitation lorsque le système sera configuré.</p><button onclick="notice('Le lien de parrainage n’est pas encore créé.')">Lien bientôt disponible</button></div>
+</section>
+
+<section id="profile" class="page hidden">
+  <div class="section-title">👤 Mon profil</div>
+  <div class="activity"><div class="ico">C</div><div><strong id="username">Utilisateur démo</strong><p>Profil de démonstration Telegram</p></div></div>
+  <div class="activity"><div class="ico">💎</div><div><strong>250 points</strong><p>Solde fictif de démonstration</p></div></div>
+</section>
+
+<div class="note"><strong>Prototype :</strong> cette page est une maquette visuelle. Elle ne diffuse pas de publicité, ne collecte pas de données bancaires et ne verse pas d'argent. Les points sont fictifs.</div>
+</main>
+<nav class="nav">
+<button class="active" data-page="home" onclick="go('home',this)"><b>⌂</b>Accueil</button>
+<button data-page="rewards" onclick="go('rewards',this)"><b>🎁</b>Récompenses</button>
+<button data-page="invite" onclick="go('invite',this)"><b>♙</b>Parrainage</button>
+<button data-page="profile" onclick="go('profile',this)"><b>●</b>Profil</button>
+</nav>
+<script>
+const tg=window.Telegram&&window.Telegram.WebApp;
+if(tg){tg.ready();tg.expand();const u=tg.initDataUnsafe&&tg.initDataUnsafe.user;if(u){document.getElementById('username').textContent=u.first_name||'Utilisateur';document.getElementById('avatar').textContent=(u.first_name||'C').charAt(0).toUpperCase();}}
+function notice(t){if(tg&&tg.showAlert)tg.showAlert(t);else alert(t)}
+function go(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
